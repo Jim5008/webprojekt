@@ -1,67 +1,130 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DOM & Events</title>
+    <title>Meine Website</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
         font-family: Arial, sans-serif;
-        padding: 40px;
-        background-color: #ffffff;
       }
-      input {
-        padding: 10px;
-        font-size: 16px;
-        border: 2px solid #457b9d;
-        border-radius: 6px;
-        width: 250px;
+
+      nav {
+        background-color: #1a1a2e;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      button {
-        padding: 10px 20px;
-        background-color: #e63946;
+
+      .logo {
         color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-        margin-left: 10px;
-      }
-      #ausgabe {
-        margin-top: 30px;
         font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .nav-links a:hover {
+        color: #e63946;
+      }
+
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+      }
+
+      .hero {
+        background-color: #f0f0f0;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
         color: #1a1a2e;
+      }
+
+      .hero p {
+        font-size: 20px;
+        color: #555;
+      }
+
+      @media (max-width: 1200px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: #1a1a2e;
+          padding: 20px;
+          gap: 15px;
+        }
+
+        .nav-links.offen {
+          display: flex;
+        }
+
+        .burger {
+          display: flex;
+        }
       }
     </style>
   </head>
   <body>
 
-    <h1>Wie heißt du?</h1>
-    <input id="nameEingabe" type="text" placeholder="Deinen Namen eingeben...">
-    <button onclick="begruessung()">Begrüßen</button>
-    <button onclick="grossbuchstaben()">In Großbuchstaben anzeigen</button>
+    <nav>
+      <div class="logo">MeineSeite</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Start</a></li>
+        <li><a href="#">Über mich</a></li>
+        <li><a href="#">Projekte</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+      <div class="burger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
 
-    <p id="ausgabe"></p>
+    <div class="hero">
+      <h1>Willkommen!</h1>
+      <p>Das ist meine erste richtige Website.</p>
+    </div>
 
     <script>
-      function begruessung() {
-        let name = document.getElementById("nameEingabe").value;
-        name = name.trim();
-
-        if (name === "") {
-          document.getElementById("ausgabe").innerText = "Bitte gib deinen Namen ein!";
-        } else {
-          document.getElementById("ausgabe").innerText = "Hallo, " + name + "! 👋";
-        }
-      }
-
-      function grossbuchstaben() {
-        let name = document.getElementById("nameEingabe").value;
-        name = name.trim();
-
-        if (name === "") {
-          document.getElementById("ausgabe").innerText = "Bitte gib deinen Namen ein!";
-        } else {
-          document.getElementById("ausgabe").innerText = name.toUpperCase();
-        }
+      function toggleMenu() {
+        let nav = document.getElementById("navLinks");
+        nav.classList.toggle("offen");
       }
     </script>
 
