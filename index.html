@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM & Events</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background-color: #ffffff;
+      }
+      input {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #457b9d;
+        border-radius: 6px;
+        width: 250px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #e63946;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      #ausgabe {
+        margin-top: 30px;
+        font-size: 24px;
+        color: #1a1a2e;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Wie heißt du?</h1>
+    <input id="nameEingabe" type="text" placeholder="Deinen Namen eingeben...">
+    <button onclick="begruessung()">Begrüßen</button>
+    <button onclick="grossbuchstaben()">In Großbuchstaben anzeigen</button>
+
+    <p id="ausgabe"></p>
+
+    <script>
+      function begruessung() {
+        let name = document.getElementById("nameEingabe").value;
+        name = name.trim();
+
+        if (name === "") {
+          document.getElementById("ausgabe").innerText = "Bitte gib deinen Namen ein!";
+        } else {
+          document.getElementById("ausgabe").innerText = "Hallo, " + name + "! 👋";
+        }
+      }
+
+      function grossbuchstaben() {
+        let name = document.getElementById("nameEingabe").value;
+        name = name.trim();
+
+        if (name === "") {
+          document.getElementById("ausgabe").innerText = "Bitte gib deinen Namen ein!";
+        } else {
+          document.getElementById("ausgabe").innerText = name.toUpperCase();
+        }
+      }
+    </script>
+
+  </body>
+</html>
