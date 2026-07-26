@@ -2,17 +2,9 @@ import Navbar from './Navbar';
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#ffffff" }}>
+    <div className="bg-grey-100">
       <Navbar />
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "400px",
-        fontSize: "48px",
-        fontWeight: "bold",
-        color: "#1a1a2e"
-      }}>
+      <div className="flex justify-center items-center h-96 text-5xl font-bold text-red-500">
         Willkommen!
       </div>
     </div>
